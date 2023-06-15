@@ -9,6 +9,19 @@ RUN apt-get update \
         libffi-dev \
         libssl-dev \
         git \
+        curl \
+        gnupg \
+        ca-certificates \
+    && install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg \
+    && chmod a+r /etc/apt/keyrings/docker.gpg \
+    && echo \
+        "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+        "$(. /etc/os-release \
+    && echo "$VERSION_CODENAME")" stable" | \
+        tee /etc/apt/sources.list.d/docker.list > /dev/null \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends docker-ce docker-ce-cli containerd.io docker-buildx-plugin \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && python -m venv /opt/venv
@@ -35,6 +48,8 @@ RUN apt-get update \
         libssl1.1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+RUN usermod -aG docker ctfd
 
 COPY --chown=1001:1001 . /opt/CTFd
 

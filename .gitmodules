@@ -1,0 +1,6 @@
+[submodule "CTFd/plugins/ctfd-whale"]
+	path = CTFd/plugins/ctfd-whale
+	url = https://github.com/apogiatzis/ctfd-ovis
+[submodule "CTFd/themes/neon"]
+	path = CTFd/themes/neon
+	url = https://github.com/apogiatzis/ctfd-neon-theme
