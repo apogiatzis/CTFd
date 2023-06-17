@@ -48,7 +48,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ${{ steps.repo.outputs.lowercase }}:latest
             ghcr.io/${{ steps.repo.outputs.lowercase }}:latest
-            ${{ steps.repo.outputs.lowercase }}:${{ github.event.release.tag_name }}
             ghcr.io/${{ steps.repo.outputs.lowercase }}:${{ github.event.release.tag_name }}
