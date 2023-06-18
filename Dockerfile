@@ -49,8 +49,6 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN usermod -aG docker ctfd
-
 COPY --chown=1001:1001 . /opt/CTFd
 
 RUN useradd \
