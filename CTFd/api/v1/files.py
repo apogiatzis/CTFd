@@ -15,6 +15,7 @@ from CTFd.utils.decorators import admins_only
 from CTFd.utils.helpers.models import build_model_filters
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 files_namespace = Namespace("files", description="Endpoint to retrieve Files")
 
