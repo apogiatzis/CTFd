@@ -87,6 +87,13 @@ class FilesList(Resource):
     )
     def post(self):
         files = request.files.getlist("file")
+
+        import logging
+        gunicorn_logger = logging.getLogger('gunicorn.error')
+        gunicorn_logger.error(request)
+        gunicorn_logger.error(files)
+        print(request)
+        print(files)
         # challenge_id
         # page_id
 
