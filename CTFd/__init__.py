@@ -15,6 +15,7 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.utils import cached_property
 
 import CTFd.utils.config
+import CTFd._logging
 from CTFd import utils
 from CTFd.constants.themes import ADMIN_THEME, DEFAULT_THEME
 from CTFd.plugins import init_plugins
