@@ -95,7 +95,7 @@ class FilesList(Resource):
             'level': 'warn',
             'meta': dict(request.headers)
         }
-        logger.debug("Request for uploading files", extra=opts)
+        logger.info("Request for uploading files", extra=opts)
 
         objs = []
         for f in files:
