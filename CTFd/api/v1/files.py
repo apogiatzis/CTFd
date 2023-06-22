@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 from flask import request
@@ -12,6 +13,8 @@ from CTFd.schemas.files import FileSchema
 from CTFd.utils import uploads
 from CTFd.utils.decorators import admins_only
 from CTFd.utils.helpers.models import build_model_filters
+
+logger = logging.getLogger(__name__)
 
 files_namespace = Namespace("files", description="Endpoint to retrieve Files")
 
@@ -87,15 +90,11 @@ class FilesList(Resource):
     )
     def post(self):
         files = request.files.getlist("file")
-
-        import logging
-        gunicorn_logger = logging.getLogger('gunicorn.error')
-        gunicorn_logger.error(request)
-        gunicorn_logger.error(files)
-        print(request)
-        print(files)
-        # challenge_id
-        # page_id
+        opts = {
+            'level': 'warn',
+            'meta': dict(request.headers)
+        }
+        logger.debug("Request for uploading files", extra=opts)
 
         objs = []
         for f in files:
