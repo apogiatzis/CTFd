@@ -4,7 +4,7 @@ import os
 
 key=os.environ['MEZMO_INGESTION_KEY']
 
-log = logging.getLogger('logdna')
+log = logging.getLogger()
 log.setLevel(logging.INFO)
 
 options = {
