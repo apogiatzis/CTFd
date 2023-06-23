@@ -55,7 +55,7 @@ RUN useradd \
     --no-log-init \
     --shell /bin/bash \
     -m \
-    -d /home/ctfd \
+    -d /opt/CTFd \
     -u 1001 \
     ctfd \
     && mkdir -p /var/log/CTFd /var/uploads \
@@ -63,8 +63,6 @@ RUN useradd \
     && chmod +x /opt/CTFd/docker-entrypoint.sh
 
 RUN usermod -aG docker ctfd
-
-RUN chown -R ctfd:ctfd /home/ctfd && chmod -R 644 /home/ctfd
 
 COPY --chown=1001:1001 --from=build /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
