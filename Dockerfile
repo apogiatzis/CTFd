@@ -54,6 +54,7 @@ COPY --chown=1001:1001 . /opt/CTFd
 RUN useradd \
     --no-log-init \
     --shell /bin/bash \
+    -m \
     -d /home/ctfd \
     -u 1001 \
     ctfd \
