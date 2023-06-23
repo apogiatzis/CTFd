@@ -29,8 +29,6 @@ fi
 flask db upgrade
 
 # [OPTIONAL] Login to github container registry - for downloading private images
-sudo chown -R ctfd:ctfd /home/ctfd
-sudo chmod -R 644 ctfd:ctfd /home/ctfd
 echo ${CONTAINER_REGISTRY_PAT} | docker login ghcr.io -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
 
 # Start CTFd

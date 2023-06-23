@@ -62,6 +62,8 @@ RUN useradd \
 
 RUN usermod -aG docker ctfd
 
+RUN chown -R ctfd:ctfd /home/ctfd && chmod -R 644 ctfd:ctfd /home/ctfd
+
 COPY --chown=1001:1001 --from=build /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
