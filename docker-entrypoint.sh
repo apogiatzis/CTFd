@@ -8,6 +8,7 @@ ERROR_LOG=${ERROR_LOG:--}
 WORKER_TEMP_DIR=${WORKER_TEMP_DIR:-/dev/shm}
 SECRET_KEY=${SECRET_KEY:-}
 SKIP_DB_PING=${SKIP_DB_PING:-false}
+CONTAINER_REGISTRY_PAT=${CONTAINER_REGISTRY_PAT:-}
 
 # Check that a .ctfd_secret_key file or SECRET_KEY envvar is set
 if [ ! -f .ctfd_secret_key ] && [ -z "$SECRET_KEY" ]; then
@@ -29,7 +30,10 @@ fi
 flask db upgrade
 
 # [OPTIONAL] Login to github container registry - for downloading private images
-echo ${CONTAINER_REGISTRY_PAT} | docker login ghcr.io -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin
+if [ -n "${CONTAINER_REGISTRY_PAT}" ]; then
+    echo "Personal Access Token found... Authenticating to private GHCR registry"
+    echo ${CONTAINER_REGISTRY_PAT} | docker login ghcr.io -u ${CONTAINER_REGISTRY_USERNAME} --password-stdin; 
+fi
 
 # Start CTFd
 echo "Starting CTFd"
