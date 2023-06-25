@@ -96,6 +96,7 @@ class FilesList(Resource):
             'meta': dict(request.headers)
         }
         logger.info("Request for uploading files", extra=opts)
+        print(request.form.to_dict())
 
         # Handle situation where users attempt to upload multiple files with a single location
         if len(files) > 1 and request.form.get("location"):
