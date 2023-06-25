@@ -96,6 +96,7 @@ class FilesList(Resource):
             'meta': dict(request.headers)
         }
         logger.info("Request for uploading files", extra=opts)
+        print(request.form.to_dict())
 
         objs = []
         for f in files:
@@ -107,7 +108,7 @@ class FilesList(Resource):
         response = schema.dump(objs)
 
         if response.errors:
-            return {"success": False, "errors": response.errorss}, 400
+            return {"success": False, "errors": response.errors}, 400
 
         return {"success": True, "data": response.data}
 
