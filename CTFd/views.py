@@ -185,7 +185,7 @@ def setup():
         </h3>
         <br>
         <h4 class="text-center">
-            <a href="admin">Click here</a> to login and setup your CTF
+            <a href="admin">Click here</a> to laaaaogin and setup your CTF
         </h4>
     </div>
 </div>"""
