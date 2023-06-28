@@ -1,6 +1,9 @@
 [submodule "CTFd/plugins/ctfd-whale"]
 	path = CTFd/plugins/ctfd-whale
-	url = https://github.com/apogiatzis/ctfd-ovis
+	url = git@github.com:apogiatzis/ctfd-ovis.git
 [submodule "CTFd/themes/neon"]
 	path = CTFd/themes/neon
-	url = https://github.com/apogiatzis/ctfd-neon-theme
+	url = git@github.com:apogiatzis/ctfd-neon-theme.git
+[submodule "CTFd/plugins/ctfd-notifier"]
+	path = CTFd/plugins/ctfd-notifier
+	url = git@github.com:cybermouflons/ctfd-notifier.git
