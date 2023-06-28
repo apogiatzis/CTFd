@@ -44,11 +44,16 @@ const buildGraphData = () => {
       return false;
     }
 
+    
     const option = {
       title: {
         left: "center",
+        textStyle: {
+          color: '#ffffff'
+        },
         text: "Top 10 " + (CTFd.config.userMode === "teams" ? "Teams" : "Users")
       },
+      color: ["#bb9027", "#c0bebb", "#9f7449","#a4211f", "#c52725", "#d93b39","#df5b5a", "#ec9d9c" ,'#f8dede'],
       tooltip: {
         trigger: "axis",
         axisPointer: {
@@ -59,15 +64,13 @@ const buildGraphData = () => {
         type: "scroll",
         orient: "horizontal",
         align: "left",
-        bottom: 35,
-        data: []
-      },
-      toolbox: {
-        feature: {
-          dataZoom: {
-            yAxisIndex: "none"
-          },
-          saveAsImage: {}
+        bottom: 40,
+        data: [],
+        textStyle: {
+          color: '#ffffff' 
+        },
+        itemStyle: {
+          borderCap: 'round'
         }
       },
       grid: {
@@ -77,23 +80,40 @@ const buildGraphData = () => {
         {
           type: "time",
           boundaryGap: false,
-          data: []
+          data: [],
+          axisLabel: {
+            color: '#fff'
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#382828'
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#382828'
+            }
+          }
         }
       ],
       yAxis: [
         {
-          type: "value"
-        }
-      ],
-      dataZoom: [
-        {
-          id: "dataZoomX",
-          type: "slider",
-          xAxisIndex: [0],
-          filterMode: "filter",
-          height: 20,
-          top: 35,
-          fillerColor: "rgba(233, 236, 241, 0.4)"
+          type: "value",
+          axisLabel: {
+            color: '#fff'
+          },
+          axisLine: {
+            lineStyle: {
+                color: '#382828'
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#382828'
+            }
+          }
         }
       ],
       series: []
@@ -118,6 +138,7 @@ const buildGraphData = () => {
       const data = {
         name: places[teams[i]]["name"],
         type: "line",
+        smooth: true,
         label: {
           normal: {
             position: "top"
@@ -125,7 +146,7 @@ const buildGraphData = () => {
         },
         itemStyle: {
           normal: {
-            color: colorHash(places[teams[i]]["name"] + places[teams[i]]["id"])
+            // color: colorHash(places[teams[i]]["name"] + places[teams[i]]["id"])
           }
         },
         data: scores
