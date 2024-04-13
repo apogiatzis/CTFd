@@ -1,5 +1,5 @@
 from flask_babel import lazy_gettext as _l
-from wtforms import BooleanField, PasswordField, SelectField, StringField
+from wtforms import BooleanField, RadioField, PasswordField, SelectField, StringField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired
 
@@ -78,9 +78,13 @@ def attach_custom_user_fields(form_cls, **kwargs):
             input_field = BooleanField(
                 field.name, description=field.description, validators=validators
             )
+        elif field.field_type == "options":
+            input_field = RadioField(
+                field.name, choices=field.description.split(","), validators=validators
+            )
 
         setattr(form_cls, f"fields[{field.id}]", input_field)
-
+            
 
 def build_registration_code_field(form_cls):
     """
