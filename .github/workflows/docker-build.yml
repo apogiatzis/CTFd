@@ -60,7 +60,7 @@ jobs:
         with:
           route: POST /repos/{owner}/{repo}/dispatches
           owner: cybermouflons
-          repo: ccsc-deployment-2023
+          repo: ccsc-deployment-2024
           event_type: run_deploy_workflow
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_DISPATCH_TOKEN }}
