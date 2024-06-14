@@ -60,7 +60,7 @@ jobs:
         with:
           route: POST /repos/{owner}/{repo}/dispatches
           owner: cybermouflons
-          repo: ccsc-deployment-2024
+          repo: gt-beginner-quest-2024-deployment
           event_type: workflow_dispatch
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_DISPATCH_TOKEN }}
