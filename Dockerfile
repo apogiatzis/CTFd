@@ -20,6 +20,7 @@ COPY . /opt/CTFd
 RUN pip install --no-cache-dir -r requirements.txt \
     && for d in CTFd/plugins/*; do \
         if [ -f "$d/requirements.txt" ]; then \
+            echo "[+] Downloading requirements for plugin at: ${d}";\
             pip install --no-cache-dir -r "$d/requirements.txt";\
         fi; \
     done;
