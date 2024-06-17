@@ -1,6 +1,9 @@
 [submodule "CTFd/plugins/ctfd-whale"]
 	path = CTFd/plugins/ctfd-whale
 	url = git@github.com:apogiatzis/ctfd-ovis.git
+[submodule "CTFd/themes/gtbq"]
+	path = CTFd/themes/gtbq
+	url = git@github.com:apogiatzis/ctfd-gtbq-theme.git
 [submodule "CTFd/themes/neon"]
 	path = CTFd/themes/neon
 	url = git@github.com:apogiatzis/ctfd-neon-theme.git
