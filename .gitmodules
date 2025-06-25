@@ -10,6 +10,9 @@
 [submodule "CTFd/themes/samui"]
 	path = CTFd/themes/samui
 	url = git@github.com:apogiatzis/ctfd-samui-theme.git
+[submodule "CTFd/themes/nexus"]
+	path = CTFd/themes/samui
+	url = git@github.com:apogiatzis/ctfd-nexus-theme.git
 [submodule "CTFd/plugins/ctfd-notifier"]
 	path = CTFd/plugins/ctfd-notifier
 	url = git@github.com:cybermouflons/ctfd-notifier.git
