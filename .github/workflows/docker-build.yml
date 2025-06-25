@@ -22,12 +22,12 @@ jobs:
         uses: ASzc/change-string-case-action@v2
         with:
           string: ${{ github.repository }}
-      
+
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          submodules: 'true'
-          token: ${{ secrets.ACCESS_TOKEN }}
+          submodules: "true"
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -60,7 +60,7 @@ jobs:
         with:
           route: POST /repos/{owner}/{repo}/dispatches
           owner: cybermouflons
-          repo: gt-beginner-quest-2024-deployment
+          repo: ccsc-deployment-2025
           event_type: workflow_dispatch
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_DISPATCH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
